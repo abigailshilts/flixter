@@ -26,7 +26,7 @@
     [super viewDidLoad];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
-    self.tableView.rowHeight = 200;
+    self.tableView.rowHeight = 135;
     
     NSURL *url = [NSURL URLWithString:@"https://api.themoviedb.org/3/movie/now_playing?api_key=0aaad3f975c8116c667007769d7f26c0"];
     NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10.0];
@@ -67,8 +67,15 @@
    
     cell.titleLabel.text = self.movies[indexPath.row][@"original_title"];
     cell.synopsisLabel.text = self.movies[indexPath.row][@"overview"];
-    //cell.posterImageView.image = self.movies[indexPath.row][@"poster_path"];
-
+    NSString *link = self.movies[indexPath.row][@"poster_path"];
+    NSString *location = @"https://image.tmdb.org/t/p/w92/";
+    
+    NSString *path = [location stringByAppendingString:link];
+    
+    NSURL *url = [NSURL URLWithString:path];
+    
+    [cell.posterImageView setImageWithURL:url];
+    
     //NSDictionary *movie = self.movies[indexPath.row];
    // cell.titleLabel.text = movie[@"title"];
     return cell;
