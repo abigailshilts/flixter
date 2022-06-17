@@ -64,7 +64,7 @@
                
                //NSLog(@"%@", dataDictionary);
                
-              self.movies = dataDictionary[@"results"];
+             self.movies = dataDictionary[@"results"];
                
              for (int i = 0; i < [self.movies count]; i++)
                 NSLog(@"%@", self.movies[i]);
