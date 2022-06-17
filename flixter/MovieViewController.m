@@ -17,6 +17,7 @@
 @property (nonatomic, strong) NSArray *movies;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) UIRefreshControl*refreshControl;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicatorIcon;
 
 @end
 
@@ -46,6 +47,17 @@
     NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
            if (error != nil) {
                NSLog(@"%@", [error localizedDescription]);
+               
+               UIAlertController *controller = [UIAlertController alertControllerWithTitle:@"Cannot Get Movies" message:@"Internet connection appears to be offline." preferredStyle:UIAlertControllerStyleAlert];
+               
+               UIAlertAction *buttonTryAgain = [UIAlertAction actionWithTitle:@"Try Again" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                   [self fetchMovies];
+                }];
+               
+               [controller addAction:buttonTryAgain];
+               [self presentViewController:controller animated:YES completion:nil];
+               
+
            }
            else {
                NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
