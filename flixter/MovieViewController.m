@@ -8,14 +8,15 @@
 #import "MovieViewController.h"
 #import "CustomCell.h"
 #import "UIImageView+AFNetworking.h"
+#import "DetailsViewController.h"
 
 
 
 
 @interface MovieViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, strong) NSArray *movies;
-
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) UIRefreshControl*refreshControl;
 
 @end
 
@@ -28,6 +29,17 @@
     self.tableView.delegate = self;
     self.tableView.rowHeight = 135;
     
+    [self fetchMovies];
+    
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(fetchMovies) forControlEvents:UIControlEventValueChanged];
+    [self.tableView addSubview:self.refreshControl];
+    
+    
+    // Do any additional setup after loading the view.
+}
+
+- (void)fetchMovies {
     NSURL *url = [NSURL URLWithString:@"https://api.themoviedb.org/3/movie/now_playing?api_key=0aaad3f975c8116c667007769d7f26c0"];
     NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10.0];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:nil delegateQueue:[NSOperationQueue mainQueue]];
@@ -49,13 +61,9 @@
                // TODO: Reload your table view data
                [self.tableView reloadData];
            }
+        [self.refreshControl endRefreshing];
        }];
     [task resume];
-    
-
-    
-
-    // Do any additional setup after loading the view.
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -88,14 +96,20 @@
     return self.movies.count;
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    NSIndexPath *senderIndex = [self.tableView indexPathForCell: sender];
+    NSDictionary *dataToPass = self.movies[senderIndex.row];
+    DetailsViewController *detailVC = [segue destinationViewController];
+    
+    detailVC.passedData = dataToPass;
+    
+    //Get the new view controller using [segue destinationViewController].
+    //Pass the selected object to the new view controller.
 }
-*/
+
 
 @end
