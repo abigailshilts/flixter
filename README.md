@@ -27,7 +27,7 @@ Please list two areas of the assignment you'd like to **discuss further with you
 
 ## Video Walkthrough
 
-For a walkthrough see AppWalkThroughP1.mov
+For a walkthrough see AppWalkThroughP1.mov and secondPartAppWalkThroughP1.mov
 
 ## Notes
 
