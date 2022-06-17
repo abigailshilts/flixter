@@ -26,17 +26,14 @@ Please list two areas of the assignment you'd like to **discuss further with you
 2. How the code for retrieving data from a database works
 
 ## Video Walkthrough
-
-Here's a walkthrough of implemented user stories:
-
-[GIF](https://github.com/abigailshilts/flixter/files/8931711/ezgif.com-gif-maker.gif.zip)
+For a walkthrough see AppWalkThroughP1.mov
 
 GIF created with [EZGif](https://ezgif.com/video-to-gif).
 
 ## Notes
 
 I ran into a lot of issues related to the outlets and ensuring that items had proper classes. 
-Continuing to work on it is helping for the way onject oriented programing applies to xCode 
+Continuing to work on it is helping for the way object oriented programing applies to xCode 
 to become more clear.
 
 ## Credits
