@@ -26,9 +26,8 @@ Please list two areas of the assignment you'd like to **discuss further with you
 2. How the code for retrieving data from a database works
 
 ## Video Walkthrough
-For a walkthrough see AppWalkThroughP1.mov
 
-GIF created with [EZGif](https://ezgif.com/video-to-gif).
+For a walkthrough see AppWalkThroughP1.mov
 
 ## Notes
 
