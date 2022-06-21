@@ -69,11 +69,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="rcx-Ah-lEl"/>
                     <connections>
-                        <outlet property="movieDescription" destination="rVj-nL-DRR" id="SGo-ta-6XH"/>
-                        <outlet property="movieRating" destination="41j-OS-VhJ" id="Rn9-dW-wbL"/>
-                        <outlet property="movieTitle" destination="rTR-8b-hAM" id="53E-SO-MKn"/>
-                        <outlet property="posterImage" destination="xa7-UY-wQl" id="ejv-fy-3fs"/>
-                        <outlet property="releaseDate" destination="fYA-fm-PKM" id="Jpb-zA-f68"/>
+                        <outlet property="movDescrip" destination="rVj-nL-DRR" id="kYB-AF-byy"/>
+                        <outlet property="movImage" destination="xa7-UY-wQl" id="g02-k3-LLb"/>
+                        <outlet property="movRating" destination="41j-OS-VhJ" id="RtZ-dS-g0l"/>
+                        <outlet property="movRelease" destination="fYA-fm-PKM" id="CSy-5M-9tp"/>
+                        <outlet property="movTitle" destination="rTR-8b-hAM" id="GCw-He-zAw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jfU-cx-RiM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -110,7 +110,7 @@
                                     </subviews>
                                 </collectionViewCellContentView>
                                 <connections>
-                                    <outlet property="movImg" destination="DPz-Au-C2M" id="d7h-xt-PnY"/>
+                                    <outlet property="posterImg" destination="DPz-Au-C2M" id="8pT-iI-tEj"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -120,6 +120,9 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" id="XTZ-Jf-9X9"/>
+                    <connections>
+                        <outlet property="collectionView" destination="NI4-BR-WLB" id="7dr-cB-onr"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4aV-8k-HI8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
